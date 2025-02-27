@@ -5,6 +5,7 @@ import io.github.config4k.serializers.ConfigValueSerializer
 import io.github.config4k.serializers.PeriodSerializer
 import io.github.config4k.serializers.RegexSerializer
 import io.github.config4k.serializers.TemporalAmountSerializer
+import io.github.config4k.serializers.UUIDSerializer
 import kotlinx.serialization.hocon.Hocon
 import kotlinx.serialization.hocon.serializers.ConfigMemorySizeSerializer
 import kotlinx.serialization.hocon.serializers.JavaDurationSerializer
@@ -17,6 +18,7 @@ public val Config4kModule: SerializersModule =
         contextual(PeriodSerializer)
         contextual(RegexSerializer)
         contextual(TemporalAmountSerializer)
+        contextual(UUIDSerializer)
         contextual(ConfigSerializer)
         contextual(ConfigValueSerializer)
         contextual(ConfigMemorySizeSerializer)
