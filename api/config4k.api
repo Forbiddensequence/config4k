@@ -83,6 +83,26 @@ public final class io/github/config4k/serializers/FileSerializer : kotlinx/seria
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public abstract interface annotation class io/github/config4k/serializers/JBeanClassHolder : java/lang/annotation/Annotation {
+	public abstract fun clazz ()Ljava/lang/Class;
+}
+
+public synthetic class io/github/config4k/serializers/JBeanClassHolder$Impl : io/github/config4k/serializers/JBeanClassHolder {
+	public fun <init> (Lkotlin/reflect/KClass;)V
+	public final synthetic fun clazz ()Ljava/lang/Class;
+}
+
+public final class io/github/config4k/serializers/JBeanSerializer : kotlinx/serialization/KSerializer {
+	public static final field Companion Lio/github/config4k/serializers/JBeanSerializer$Companion;
+	public fun <init> (Ljava/lang/Class;)V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class io/github/config4k/serializers/JBeanSerializer$Companion {
+}
+
 public final class io/github/config4k/serializers/MapAsListSerializer : kotlinx/serialization/KSerializer {
 	public fun <init> (Lkotlinx/serialization/KSerializer;Lkotlinx/serialization/KSerializer;)V
 	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
