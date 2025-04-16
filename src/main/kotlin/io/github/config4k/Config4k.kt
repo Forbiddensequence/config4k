@@ -37,4 +37,24 @@ public val Config4kModule: SerializersModule =
 public val Config4k: Hocon =
     Hocon {
         serializersModule = Config4kModule
+        useConfigNamingConvention = true
     }
+
+public val Config4kWithCamelCase: Hocon =
+    Hocon {
+        serializersModule = Config4kModule
+        useConfigNamingConvention = false
+    }
+
+public val Confgi4kCustom: Hocon = Hocon
+
+public class ExtensibleHocon(
+    encodeDefaults: Boolean, useConfigNamingConvention: Boolean, useArrayPolymorphism: Boolean,
+    classDiscriminator: String, serializersModule: SerializersModule
+) : Hocon(
+    encodeDefaults = encodeDefaults,
+    useConfigNamingConvention = useConfigNamingConvention,
+    useArrayPolymorphism = useArrayPolymorphism,
+    classDiscriminator = classDiscriminator,
+    serializersModule = serializersModule
+)
