@@ -23,6 +23,7 @@ import kotlin.reflect.full.primaryConstructor
  * @param path see [com.typesafe.config.Config]
  * @param defaultValue will be return if Config doesn't contain value by path
  */
+@Deprecated("It hasn't got an equivalent since 1.0.0 library version")
 public inline fun <reified T> Config.extract(
     path: String,
     defaultValue: T? = null,
@@ -45,6 +46,12 @@ public inline fun <reified T> Config.extract(
 /**
  * Loads whole config into one data class.
  */
+@Deprecated(
+    "Use decodeFromConfig instead.", ReplaceWith(
+        "Config4k.decodeFromConfig<T>(this)",
+        "kotlinx.serialization.hocon.decodeFromConfig"
+    )
+)
 public inline fun <reified T> Config.extract(): T {
     val genericType = object : TypeReference<T>() {}.genericType()
 
@@ -64,6 +71,7 @@ public inline fun <reified T> Config.extract(): T {
  *            the property to populate
  * @return the configured value converted to the property's type
  */
+@Deprecated("It hasn't got an equivalent since 1.0.0 library version")
 public inline operator fun <R, reified T> Config.getValue(
     thisRef: R,
     property: KProperty<*>,
@@ -87,6 +95,7 @@ public inline operator fun <R, reified T> Config.getValue(
  *
  * @param name the returned config's name
  */
+@Deprecated("It hasn't got an equivalent since 1.0.0 library version")
 public fun Any.toConfig(name: String): Config {
     val clazz = this.javaClass.kotlin
     for (customType in customTypeRegistry) {
